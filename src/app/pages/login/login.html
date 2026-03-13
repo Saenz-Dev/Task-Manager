@@ -1,1 +1,66 @@
+<!-- <div class="container formulario d-flex justify-content-center align-items-center">
+    <div class="col-md-6 col-lg-4"> -->
+<nz-row nzJustify="center" class="formulario" nzAlign="middle">
+    <nz-col nzSpan="20">
+        <form nz-form nzLayout="vertical" [formGroup]="registerForm">
+            <nz-row class="titulo-descripcion">
+                <nz-col nzSpan="10">
+                    <h2 class="titulo text-center">Regí<span class="color">strate</span></h2>
+                </nz-col>
+                <nz-col nzSpan="14">
+                    <p class="textoRegistro text-center">¿Ya tienes cuenta? <a [routerLink]="['/hola']" class="color">Entra</a></p>
+                </nz-col>
+            </nz-row>
 
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Por favor introduce tu nombres y apellidos." [nzSpan]="24">
+                    <nz-input-wrapper class="wrap-user">
+                        <nz-icon nzInputPrefix nzType="user" />
+                        <input nz-input formControlName="nombre" placeholder="Nombre" />
+                    </nz-input-wrapper>
+                    <nz-input-wrapper class="wrap-apellidos">
+                        <nz-icon nzInputPrefix nzType="user" />
+                        <input nz-input formControlName="apellidos" placeholder="Apellidos" />
+                    </nz-input-wrapper>
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Por favor introduce un correo electronico." [nzSpan]="24">
+                    <nz-input-wrapper class="wrap-email">
+                        <nz-icon nzInputPrefix nzType="mail" nzTheme="outline" />
+                        <input nz-input formControlName="email" type="text" placeholder="Correo Electrónico">
+                    </nz-input-wrapper>
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+                <nz-form-control
+                    nzErrorTip="Debe tener al menos una letra minuscula, mayuscula, un numero y un caracter especial y 8 carateres"
+                    [nzSpan]="24">
+                    <nz-input-password class="wrap-password">
+                        <nz-icon nzInputPrefix nzType="lock" nzTheme="outline" />
+                        <input nz-input formControlName="password" type="text" placeholder="Contraseña"
+                            (input)="matchPasswords($event)">
+                    </nz-input-password>
+                </nz-form-control>
+                <nz-form-control nzErrorTip="Las contraseñas no coinciden." [nzSpan]="24">
+                    <nz-input-password class="wrap-verifyPassword">
+                        <nz-icon nzInputPrefix nzType="lock" />
+                        <input nz-input formControlName="verifyPassword" type="password"
+                            placeholder="Repite la contraseña" (input)="matchPasswords($event)">
+                    </nz-input-password>
+                    @if (!esIgual && (registerForm.get('verifyPassword')?.touched ||
+                    registerForm.get('password')?.touched)) {
+                    <div style="color: red;">Las contraseñas no coinciden</div>
+                    }
+                </nz-form-control>
+            </nz-form-item>
+
+            <button nz-button class="btn-success btn-registrarse" (click)="registrarUsuario()">Registrarse</button>
+
+        </form>
+    </nz-col>
+</nz-row>
+<!-- </div>
+</div> -->

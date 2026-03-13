@@ -1,1 +1,118 @@
 /* You can add global styles to this file, and also import other style files */
+.titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 29px;
+    font-weight: bolder;
+    margin-bottom: 40px;
+    margin-right: 20px;
+}
+
+.color {
+    color: rgb(114, 153, 77);
+}
+
+.textoRegistro {
+    margin-top: 12px;
+    margin-bottom: 0px;
+    margin-left: 33px;
+    color: rgb(170, 170, 170) !important;
+    font-weight: 500;
+}
+
+.textoRegistro>.color {
+    text-decoration: underline;
+}
+
+.titulo-descripcion {
+    margin-top: 35px;
+}
+
+body {
+    background-color: rgba(239, 236, 231);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario {
+    background-color: white;
+    border-radius: 15px;
+    width: 380px;
+}
+
+/* Para los inputs */
+.wrap-user {
+    border-radius: 10px 10px 0px 0px;
+    height: 45px;
+    background-color: rgba(248, 247, 245) !important;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 40px ;
+}
+
+input {
+    background-color: rgba(248, 247, 245) !important;
+}
+
+.wrap-apellidos {
+    border-radius: 0px 0px 10px 10px;
+    height: 45px;
+    background-color: rgba(248, 247, 245) !important;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: rgb(228, 228, 228);
+}
+
+.wrap-email {
+    border-radius: 10px;
+    height: 45px;
+    background-color: rgba(248, 247, 245) !important;
+    border: 0px;
+}
+
+.wrap-password {
+    border-radius: 10px 10px 0px 0px;
+    height: 45px;
+    background-color: rgba(248, 247, 245) !important;
+    border: 0px;
+    border-color: rgb(228, 228, 228);
+}
+
+.wrap-verifyPassword {
+    border-radius: 0px 0px 10px 10px;
+    height: 45px;
+    background-color: rgba(248, 247, 245) !important;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: rgb(228, 228, 228);
+}
+
+.btn-registrarse {
+    width: 100%;
+    margin-bottom: 38px;
+    background-color: rgba(107, 140, 90);
+    height: 45px;
+    color: white;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+input::placeholder {
+    font-weight: 500;
+}
+
+nz-icon svg {
+    color: rgb(167, 167, 167);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+input:focus {
+    border-top: 0px;
+}
