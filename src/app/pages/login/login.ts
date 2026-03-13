@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { FormBuilder, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators, ValidationErrors, AbstractControl, FormControl } from '@angular/forms';
 import { ChangeDetectorRef } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
@@ -8,6 +8,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from "ng-zorro-antd/icon";
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { required } from '@angular/forms/signals';
 
 @Component({
   standalone: true,
@@ -40,10 +41,10 @@ export class Login {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/)]],
       verifyPassword: ['']
-    }
-      // {
-      //   updateOn: 'change'
-      // }
+    },
+      {
+        validators: this.validarMatchPasswords
+      }
     );
   }
 
@@ -67,10 +68,22 @@ export class Login {
   // }
 
   matchPasswords(event: any) {
-    
-      this.esIgual = this.registerForm.get('password')?.value === this.registerForm.get('verifyPassword')?.value;
-    
+
+    this.esIgual = this.registerForm.get('password')?.value === this.registerForm.get('verifyPassword')?.value;
+
   }
 
-  registrarUsuario() {}
+  registrarUsuario() { }
+
+  validarMatchPasswords(control: AbstractControl): ValidationErrors | null {
+    const password = control.get('password')?.value;
+    const verifyPassword = control.get('verifyPassword')?.value;
+
+    if (password !== verifyPassword) {
+      console.log('si hay error');
+      return { noIguales: true };
+    }
+
+    return null;
+  }
 }

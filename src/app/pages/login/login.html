@@ -8,7 +8,8 @@
                     <h2 class="titulo text-center">Regí<span class="color">strate</span></h2>
                 </nz-col>
                 <nz-col nzSpan="14">
-                    <p class="textoRegistro text-center">¿Ya tienes cuenta? <a [routerLink]="['/hola']" class="color">Entra</a></p>
+                    <p class="textoRegistro text-center">¿Ya tienes cuenta? <a [routerLink]="['/hola']"
+                            class="color">Entra</a></p>
                 </nz-col>
             </nz-row>
 
@@ -35,26 +36,48 @@
             </nz-form-item>
 
             <nz-form-item>
-                <nz-form-control
+                <!-- <nz-form-control
                     nzErrorTip="Debe tener al menos una letra minuscula, mayuscula, un numero y un caracter especial y 8 carateres"
-                    [nzSpan]="24">
+                    [nzSpan]="24"> -->
+                <nz-form-control [nzSpan]="24">
                     <nz-input-password class="wrap-password">
                         <nz-icon nzInputPrefix nzType="lock" nzTheme="outline" />
-                        <input nz-input formControlName="password" type="text" placeholder="Contraseña"
-                            (input)="matchPasswords($event)">
+                        <input nz-input formControlName="password" type="text" placeholder="Contraseña">
                     </nz-input-password>
                 </nz-form-control>
-                <nz-form-control nzErrorTip="Las contraseñas no coinciden." [nzSpan]="24">
+                <!-- <nz-form-control [nzErrorTip]="passwordError" [nzSpan]="24"> -->
+                <nz-form-control [nzSpan]="24">
                     <nz-input-password class="wrap-verifyPassword">
                         <nz-icon nzInputPrefix nzType="lock" />
                         <input nz-input formControlName="verifyPassword" type="password"
-                            placeholder="Repite la contraseña" (input)="matchPasswords($event)">
+                            placeholder="Repite la contraseña">
                     </nz-input-password>
-                    @if (!esIgual && (registerForm.get('verifyPassword')?.touched ||
+                    <!-- @if (!esIgual && (registerForm.get('verifyPassword')?.touched ||
                     registerForm.get('password')?.touched)) {
                     <div style="color: red;">Las contraseñas no coinciden</div>
-                    }
+                    } -->
+
                 </nz-form-control>
+                @if (registerForm.get('password')?.hasError('pattern') && registerForm.get('password')?.dirty) {
+
+                <div style="color:red; margin-top:5px;">
+                    Debe tener al menos una minúscula, una mayúscula, un número, un carácter especial y mínimo 8
+                    caracteres
+                </div>
+
+                }
+                @else if (registerForm.hasError('noIguales') && registerForm.get('verifyPassword')?.dirty) {
+
+                <div style="color:red; margin-top:5px;">
+                    Las contraseñas no coinciden
+                </div>
+
+                }
+                <!-- <ng-template #passwordError let-control>
+                    @if (registerForm.hasError('noIguales')) {
+                    <p>Las contraseñas no coinciden</p>
+                    }
+                </ng-template> -->
             </nz-form-item>
 
             <button nz-button class="btn-success btn-registrarse" (click)="registrarUsuario()">Registrarse</button>
