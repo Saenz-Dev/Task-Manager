@@ -49,7 +49,7 @@ body {
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
-    border-bottom: 40px ;
+    border-bottom: 40px;
 }
 
 input {
@@ -94,13 +94,25 @@ input {
 .btn-registrarse {
     width: 100%;
     margin-bottom: 38px;
-    background-color: rgba(107, 140, 90);
+    background-color: rgba(107, 140, 90) ;
     height: 45px;
-    color: white;
+    color: white !important;
     border-radius: 10px;
     font-size: 15px;
     font-weight: 500;
     letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+}
+
+.ant-btn[disabled],
+.ant-btn[disabled]:active,
+.ant-btn[disabled]:focus,
+.ant-btn[disabled]:hover {
+    background: rgb(135, 148, 128);
+}
+
+.ant-btn:hover {
+    background-color: rgba(107, 140, 90);
 }
 
 input::placeholder {

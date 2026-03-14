@@ -8,7 +8,7 @@
                     <h2 class="titulo text-center">Regí<span class="color">strate</span></h2>
                 </nz-col>
                 <nz-col nzSpan="14">
-                    <p class="textoRegistro text-center">¿Ya tienes cuenta? <a [routerLink]="['/hola']"
+                    <p class="textoRegistro text-center">¿Ya tienes cuenta? <a [routerLink]="['/sign-in']"
                             class="color">Entra</a></p>
                 </nz-col>
             </nz-row>
@@ -80,10 +80,8 @@
                 </ng-template> -->
             </nz-form-item>
 
-            <button nz-button class="btn-success btn-registrarse" (click)="registrarUsuario()">Registrarse</button>
+            <button nz-button class="btn-success btn-registrarse" (click)="registrarUsuario()" [disabled]="!registerForm.valid">Registrarse</button>
 
         </form>
     </nz-col>
 </nz-row>
-<!-- </div>
-</div> -->

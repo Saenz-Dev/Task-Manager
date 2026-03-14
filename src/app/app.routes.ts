@@ -1,10 +1,15 @@
 import { RouterModule, Routes } from '@angular/router';
-import { Login } from './pages/login/login';
+import { RegisterComponent } from './pages/register/RegisterComponent';
 import { ModuleWithProviders, NgModule } from '@angular/core';
+import { SignIn } from './pages/sign-in/sign-in';
+import { PanelTareas } from './pages/panel-tareas/panel-tareas';
 
 export const routes: Routes = [
-    {path:'login', component: Login},
-    {path:'', redirectTo: 'login', pathMatch: 'full'}
+    { path: 'sign-up', component: RegisterComponent },
+    { path: 'sign-in', component: SignIn },
+    { path: 'home-tasks', component: PanelTareas },
+    { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
+    { path: '**', redirectTo: 'sign-in' }
 ];
 
 export const appRoutingProviders: any[] = [];

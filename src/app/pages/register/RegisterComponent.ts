@@ -12,29 +12,19 @@ import { required } from '@angular/forms/signals';
 
 @Component({
   standalone: true,
-  selector: 'app-login',
+  selector: 'register',
   imports: [ReactiveFormsModule, NzFormModule, NzInputModule, NzButtonModule, NzIconModule, RouterLink, NzGridModule],
-  templateUrl: './login.html',
-  styleUrl: './login.css',
+  templateUrl: './RegisterComponent.html',
 })
-export class Login {
+export class RegisterComponent {
   registerForm: FormGroup;
   fb = inject(NonNullableFormBuilder);
   esIgual = false;
-
-  // private fb = inject(NonNullableFormBuilder);
 
   constructor(
     private _router: Router,
     private cdr: ChangeDetectorRef
   ) {
-    // this.registerForm = this.formBuilder.group({
-    //   nombre: [''],
-    //   apellidos: [''],
-    //   email: [''],
-    //   password: [''],
-    //   verifyPassword: [''],
-    // });
     this.registerForm = this.fb.group({
       nombre: ['', Validators.required],
       apellidos: ['', Validators.required],
@@ -50,27 +40,8 @@ export class Login {
 
   ngOnInit() { }
 
-  // passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
-  //   const password = control.get('password')?.value;
-  //   const verifyPassword = control.get('verifyPassword')?.value;
-  //   if (password !== verifyPassword) {
-  //     return { passwordMisMatch: true };
-  //   }
-  //   return null;
-  // }
-  // resetForm(e: MouseEvent): void {
-  //   e.preventDefault();
-  //   this.validateForm.reset();
-  // }
-
-  // validatePasswords(): boolean {
-  //   return this.password == this.verifyPassword;
-  // }
-
   matchPasswords(event: any) {
-
     this.esIgual = this.registerForm.get('password')?.value === this.registerForm.get('verifyPassword')?.value;
-
   }
 
   registrarUsuario() { }
