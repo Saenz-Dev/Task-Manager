@@ -91,10 +91,14 @@ input {
     border-color: rgb(228, 228, 228);
 }
 
+.btn-registrarse,
+.btn-addTask {
+    background-color: rgba(107, 140, 90);
+}
+
 .btn-registrarse {
     width: 100%;
     margin-bottom: 38px;
-    background-color: rgba(107, 140, 90) ;
     height: 45px;
     color: white !important;
     border-radius: 10px;
@@ -119,7 +123,8 @@ input::placeholder {
     font-weight: 500;
 }
 
-nz-icon svg {
+.icon-signin nz-icon svg,
+.icon-signup nz-icon svg {
     color: rgb(167, 167, 167);
     margin-left: 10px;
     margin-right: 10px;
@@ -127,4 +132,180 @@ nz-icon svg {
 
 input:focus {
     border-top: 0px;
+}
+
+/* DISEÑO DE PANEL DE TAREAS PLANTILLA NG-ZORRO */
+
+.trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.trigger:hover {
+    color: #1890ff;
+}
+
+.logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+}
+
+nz-header {
+    background: #fff !important;
+    padding: 0;
+}
+
+nz-content {
+    margin: 0 16px;
+}
+
+nz-breadcrumb {
+    margin: 16px 0;
+}
+
+.inner-content {
+    padding: 24px;
+    background: #fff;
+    min-height: 360px;
+}
+
+nz-footer {
+    text-align: center;
+}
+
+nz-layout {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Estilo para el menu lateral */
+
+.nz-submenu-home,
+.ant-menu-submenu-popup div {
+    color: rgb(170, 170, 170);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.nz-submenu-home ul li nz-icon,
+.ant-menu-submenu-popup div ul li nz-icon {
+    padding: 0px 15px;
+    font-size: 16px !important;
+}
+
+.ant-menu-submenu-popup div ul li.ant-menu-item {
+    padding: 0px 10px !important;
+}
+
+.nz-submenu-home ul li,
+.ant-menu-submenu-popup div ul li {
+    padding: 0px 25px !important;
+    color: rgb(126, 126, 126);
+}
+
+.ant-menu {
+    background-color: #ffffff !important;
+}
+
+.ant-menu-submenu-popup {
+    background-color: #ffffff;
+}
+
+/* nz-sider {
+    min-width: 250px !important;
+    max-width: 250px !important;
+    width: 250px !important;
+} */
+
+.ant-layout-sider-collapsed div .logo {
+    background-image: url('\\assets\\img\\logo2.png');
+    width: 51px;
+    height: 50px;
+}
+
+.logo {
+    height: 40px;
+    width: 110px;
+    background-image: url('\\assets\\img\\logo3.png');
+    display: flex;
+    justify-content: center;
+    margin: 15px auto;
+}
+
+.ant-layout-sider-collapsed div .logo,
+.logo {
+    background-size: cover;
+    background-position: center;
+}
+
+hr {
+    margin: 20px;
+    color: gray;
+}
+
+/* Estilos para boton flotante */
+
+.type {
+    height: 300px;
+    position: relative;
+}
+
+nz-float-button {
+    position: absolute;
+}
+
+/* Estilos para layout de ver tareas */
+
+nz-header,
+nz-content,
+.inner-content,
+nz-layout,
+nz-footer {
+    background-color: rgb(240, 237, 232) !important;
+}
+
+nz-content {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.btn-addTask {
+    border-radius: 12px !important;
+    border-color: rgb(114, 153, 77);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.bi {
+    font-size: 16px;
+    font-style: normal;
+}
+
+.ant-card-body {
+    height: 100px !important;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.inner-content {
+    padding: 0px;
+}
+
+nz-card {
+    border-radius: 12px !important;
+}
+
+.statistics-div {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+/* Estilos para filtros */
+
+nz-select {
+    width: 200px;
 }

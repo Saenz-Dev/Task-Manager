@@ -1,0 +1,25 @@
+<div class="statistics-div" style="background: #ECECEC; padding: 30px;">
+    <nz-row [nzGutter]="16">
+        <nz-col [nzSpan]="6">
+            <nz-card>
+                <nz-statistic class="" [nzValue]="totalTasks" nzTitle="Total" [nzValueStyle]="{ color: 'black' }" />
+            </nz-card>
+        </nz-col>
+        <nz-col [nzSpan]="6">
+            <nz-card>
+                <nz-statistic class="" [nzValue]="pendientesTasks" nzTitle="Pendientes" [nzValueStyle]="{ color: '#3F8600' }" />
+            </nz-card>
+        </nz-col>
+        <nz-col [nzSpan]="6">
+            <nz-card>
+                <nz-statistic class="" [nzValue]="completadasTasks" nzTitle="Completadas"
+                    [nzValueStyle]="{ color: 'black' }" />
+            </nz-card>
+        </nz-col>
+        <nz-col [nzSpan]="6">
+            <nz-card>
+                <nz-statistic class="" [nzValue]="vencidasTasks" nzTitle="Vencidas" [nzValueStyle]="{ color: '#CF1322' }" />
+            </nz-card>
+        </nz-col>
+    </nz-row>
+</div>

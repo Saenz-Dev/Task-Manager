@@ -16,11 +16,11 @@
             <nz-form-item>
                 <nz-form-control nzErrorTip="Por favor introduce tu nombres y apellidos." [nzSpan]="24">
                     <nz-input-wrapper class="wrap-user">
-                        <nz-icon nzInputPrefix nzType="user" />
+                        <nz-icon  class="icon-signup" nzInputPrefix nzType="user" />
                         <input nz-input formControlName="nombre" placeholder="Nombre" />
                     </nz-input-wrapper>
                     <nz-input-wrapper class="wrap-apellidos">
-                        <nz-icon nzInputPrefix nzType="user" />
+                        <nz-icon  class="icon-signup" nzInputPrefix nzType="user" />
                         <input nz-input formControlName="apellidos" placeholder="Apellidos" />
                     </nz-input-wrapper>
                 </nz-form-control>
@@ -29,7 +29,7 @@
             <nz-form-item>
                 <nz-form-control nzErrorTip="Por favor introduce un correo electronico." [nzSpan]="24">
                     <nz-input-wrapper class="wrap-email">
-                        <nz-icon nzInputPrefix nzType="mail" nzTheme="outline" />
+                        <nz-icon class="icon-signup" nzInputPrefix nzType="mail" nzTheme="outline" />
                         <input nz-input formControlName="email" type="text" placeholder="Correo Electrónico">
                     </nz-input-wrapper>
                 </nz-form-control>
@@ -41,14 +41,14 @@
                     [nzSpan]="24"> -->
                 <nz-form-control [nzSpan]="24">
                     <nz-input-password class="wrap-password">
-                        <nz-icon nzInputPrefix nzType="lock" nzTheme="outline" />
+                        <nz-icon  class="icon-signup" nzInputPrefix nzType="lock" nzTheme="outline" />
                         <input nz-input formControlName="password" type="text" placeholder="Contraseña">
                     </nz-input-password>
                 </nz-form-control>
                 <!-- <nz-form-control [nzErrorTip]="passwordError" [nzSpan]="24"> -->
                 <nz-form-control [nzSpan]="24">
                     <nz-input-password class="wrap-verifyPassword">
-                        <nz-icon nzInputPrefix nzType="lock" />
+                        <nz-icon class="icon-signup" nzInputPrefix nzType="lock" />
                         <input nz-input formControlName="verifyPassword" type="password"
                             placeholder="Repite la contraseña">
                     </nz-input-password>

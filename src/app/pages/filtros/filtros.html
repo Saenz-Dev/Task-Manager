@@ -1,0 +1,18 @@
+<div nz-row>
+    <div nz-col nzSpan="6">
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" [(ngModel)]="selectedValue">
+            <nz-option nzLabel="Jack" nzValue="jack" />
+            <nz-option nzLabel="Lucy" nzValue="lucy" />
+            <nz-option nzLabel="Tom" nzValue="tom" />
+        </nz-select>
+    </div>
+    <div nz-col nzSpan="6">
+        <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+            <nz-form-item>
+                <nz-form-control [nzSm]="16" [nzXs]="24">
+                    <nz-date-picker formControlName="datePicker" />
+                </nz-form-control>
+            </nz-form-item>
+        </form>
+    </div>
+</div>

@@ -1,38 +1,62 @@
 <nz-layout>
-    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
-        <div class="logo"></div>
-        <ul nz-menu nzTheme="dark" nzMode="inline">
-            <li nz-submenu nzTitle="User" nzIcon="user">
+    <nz-sider nzTheme="light" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+        <div class="logo">
+        </div>
+        <hr>
+        <ul nz-menu nzTheme="light" nzMode="inline">
+            <!-- Aqui se debe manejar con una directiva FOR según las caractarísticas o VISTAS que hayan -->
+            <li class="nz-submenu-home" nz-submenu nzTitle="VISTAS" nzIcon="unordered-list">
                 <ul>
-                    <li nz-menu-item>Tom</li>
-                    <li nz-menu-item>Bill</li>
-                    <li nz-menu-item>Alex</li>
+                    <li nz-menu-item><nz-icon nzType="appstore" nzTheme="outline" />Todas</li>
+                    <li nz-menu-item><nz-icon nzType="clock-circle" nzTheme="outline" />Pendientes</li>
+                    <li nz-menu-item><nz-icon nzType="check-circle" nzTheme="outline" />Completadas</li>
                 </ul>
             </li>
-            <li nz-submenu nzTitle="Team" nzIcon="team">
+            <li class="nz-submenu-home" nz-submenu nzTitle="CATEGORÍAS" nzIcon="folder-open">
                 <ul>
-                    <li nz-menu-item>Team 1</li>
-                    <li nz-menu-item>Team 2</li>
+                    <li nz-menu-item><nz-icon nzType="tool" nzTheme="outline" />Trabajo</li>
+                    <li nz-menu-item><nz-icon nzType="user" nzTheme="outline" />Personal</li>
+                    <li nz-menu-item><nz-icon nzType="heart" nzTheme="outline" />Salud</li>
+                    <li nz-menu-item><nz-icon nzType="read" nzTheme="outline" />Estudio</li>
+                    <li nz-menu-item><nz-icon nzType="ellipsis" nzTheme="outline" />Otros</li>
                 </ul>
-            </li>
-            <li nz-menu-item>
-                <nz-icon nzType="file" />
-                <span>File</span>
             </li>
         </ul>
     </nz-sider>
     <nz-layout>
-        <nz-header>
-            <nz-icon class="trigger" [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-                (click)="isCollapsed = !isCollapsed" />
-        </nz-header>
-        <nz-content>
-            <nz-breadcrumb>
+        <!-- <nz-header></nz-header> -->
+        <nz-content class="content-principal">
+            <div nz-row>
+                <div nz-col nzSpan="12">
+                    <h2 nz-typography class="titulo">Panel de <span class="color">Tareas</span></h2>
+                </div>
+                <div nz-col nzSpan="12" style="text-align: right; right: 10px;">
+                    <button class="btn-addTask" nz-button nzType="primary" [nzSize]="'large'" nzShape="round">
+                        <i class="bi bi-plus">Nueva tarea</i>
+                    </button>
+                </div>
+            </div>
+            <!-- <nz-breadcrumb>
                 <nz-breadcrumb-item>User</nz-breadcrumb-item>
                 <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
-            </nz-breadcrumb>
-            <div class="inner-content">Bill is a cat.</div>
+            </nz-breadcrumb> -->
+            <div class="inner-content">
+                <div nz-row>
+                    <div nz-col nzSpan="24">
+                        <statistics></statistics>
+                    </div>
+                </div>
+                <div nz-row>
+                    <div nz-col nzSpan="24">
+                        <filtros></filtros>
+                    </div>
+                </div>
+            </div>
         </nz-content>
-        <nz-footer>Ant Design ©{{ date.getFullYear() }} Implement By Angular</nz-footer>
+        <!-- <nz-footer>Ant Design ©{{ date.getFullYear() }} Implement By Angular</nz-footer> -->
     </nz-layout>
+    <div class="type">
+        <nz-float-button [nzType]="isCollapsed ? 'default' : 'primary'" style="left: 24px;"
+            (click)="isCollapsed = !isCollapsed"></nz-float-button>
+    </div>
 </nz-layout>
