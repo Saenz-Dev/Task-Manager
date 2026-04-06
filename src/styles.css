@@ -27,9 +27,22 @@
     margin-top: 35px;
 }
 
+html,
+body {
+    /* min-height: 100vh !important; */
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+app-root, nz-layout {
+    min-height: 100vh !important;
+
+}
+
 body {
     background-color: rgba(239, 236, 231);
-    height: 100vh;
+    min-height: 100vh !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,7 +65,7 @@ body {
     border-bottom: 40px;
 }
 
-input {
+.input-sign {
     background-color: rgba(248, 247, 245) !important;
 }
 
@@ -123,8 +136,8 @@ input::placeholder {
     font-weight: 500;
 }
 
-.icon-signin nz-icon svg,
-.icon-signup nz-icon svg {
+.icon-signin svg,
+.icon-signup svg {
     color: rgb(167, 167, 167);
     margin-left: 10px;
     margin-right: 10px;
@@ -179,7 +192,7 @@ nz-footer {
 
 nz-layout {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /* Estilo para el menu lateral */
@@ -295,6 +308,34 @@ nz-content {
     padding: 0px;
 }
 
+
+/* Estilos para filtros */
+
+nz-select,
+.filter-datePicker {
+    width: 95% !important;
+    margin: 0 10px !important;
+}
+
+/* Limpiar filtros */
+
+.a-limpiarFiltros,
+.titulo-tarea {
+    color: gray;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.a-limpiarFiltros:hover {
+    background-color: rgb(231, 223, 210);
+    color: white;
+}
+
+.div-a-limpiarFiltros {
+    padding-left: 20px !important;
+}
+
+/* Estilos para statistics */
 nz-card {
     border-radius: 12px !important;
 }
@@ -302,10 +343,58 @@ nz-card {
 .statistics-div {
     padding-left: 10px !important;
     padding-right: 10px !important;
+    background-color: rgb(240, 237, 232) !important;
 }
 
-/* Estilos para filtros */
-
-nz-select {
-    width: 200px;
+.statistics-nz {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
+
+.div-conjunto-limpiarFiltros div nz-select nz-select-top-control,
+nz-date-picker {
+    border-radius: 10px !important;
+    border: none !important;
+}
+
+/* Estilos para las tareas */
+
+nz-collapse {
+    background: rgb(240, 237, 232) !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+nz-collapse-panel {
+    margin-bottom: 10px;
+    background: rgb(255, 255, 255);
+    border-radius: 8px !important;
+    border: none !important;
+}
+
+.titulo-tarea {
+    margin-left: 0px !important;
+}
+
+.checkbox-tarea {
+    margin: auto !important;
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilos para las categorias de los minipaneles de tareas */
+.id_categoria-tarea {
+    
+    font-size: 12px;
+    margin-right: 30px !important;
+    border-radius: 30px;
+    height: 20px;
+    max-width: 70px !important;
+
+}
+
+.fechaVencimiento-tarea {
+    color: rgba(128, 128, 128, 0.65);
+    font-size: 12px;
+    font-weight: bold;
+}
+

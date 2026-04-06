@@ -13,10 +13,11 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzButtonSize } from 'ng-zorro-antd/button';
 import { Statistics } from "../statistics/statistics";
 import { Filtros } from '../filtros/filtros';
+import { Tareas } from '../tareas/tareas';
 
 @Component({
   selector: 'app-panel-tareas',
-  imports: [NzBreadCrumbModule, NzIconModule, NzMenuModule, NzLayoutModule, NzInputModule, NzButtonModule, NzFloatButtonModule, NzColDirective, NzTypographyModule, NzGridModule, Statistics, Filtros],
+  imports: [NzBreadCrumbModule, NzIconModule, NzMenuModule, NzLayoutModule, NzInputModule, NzButtonModule, NzFloatButtonModule, NzColDirective, NzTypographyModule, NzGridModule, Statistics, Filtros, Tareas],
   templateUrl: './panel-tareas.html',
 })
 export class PanelTareas {

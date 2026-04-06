@@ -1,18 +1,24 @@
-<div nz-row>
-    <div nz-col nzSpan="6">
-        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" [(ngModel)]="selectedValue">
+<div nz-row class="div-conjunto-limpiarFiltros">
+    <div nz-col nzSpan="5">
+        <!-- <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" [(ngModel)]="selectedValue">
             <nz-option nzLabel="Jack" nzValue="jack" />
             <nz-option nzLabel="Lucy" nzValue="lucy" />
             <nz-option nzLabel="Tom" nzValue="tom" />
+        </nz-select> -->
+        <nz-select ngModel="lucy" nzAllowClear nzPlaceHolder="Choose">
+            <nz-option nzValue="lucy" nzLabel="Lucy" />
         </nz-select>
     </div>
-    <div nz-col nzSpan="6">
+    <div nz-col nzSpan="5">
         <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
             <nz-form-item>
-                <nz-form-control [nzSm]="16" [nzXs]="24">
-                    <nz-date-picker formControlName="datePicker" />
+                <nz-form-control  [nzSm]="16" [nzXs]="24" [nzLg]="24">
+                    <nz-date-picker class="filter-datePicker" formControlName="datePicker" />
                 </nz-form-control>
             </nz-form-item>
         </form>
+    </div>
+    <div class="div-a-limpiarFiltros" nz-col nzSpan="5">
+        <a class="a-limpiarFiltros" nz-button nzType="text"><nz-icon nzType="close"></nz-icon> Limpiar filtros</a>
     </div>
 </div>

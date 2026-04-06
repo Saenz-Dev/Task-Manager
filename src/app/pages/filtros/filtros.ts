@@ -10,12 +10,12 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzTimePickerModule } from 'ng-zorro-antd/time-picker';
 import { NzGridModule } from 'ng-zorro-antd/grid';
-import { NzRowDirective } from 'ng-zorro-antd/grid';
 import { NzColDirective } from 'ng-zorro-antd/grid';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @Component({
   selector: 'filtros',
-  imports: [FormsModule, NzSelectModule, ReactiveFormsModule, NzButtonModule, NzDatePickerModule, NzFormModule, NzTimePickerModule, NzGridModule, NzColDirective, NzRowDirective],
+  imports: [FormsModule, NzSelectModule, ReactiveFormsModule, NzButtonModule, NzDatePickerModule, NzFormModule, NzTimePickerModule, NzGridModule, NzColDirective, NzIconModule],
   templateUrl: './filtros.html'
 })
 export class Filtros {
