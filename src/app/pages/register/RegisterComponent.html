@@ -1,8 +1,9 @@
 <!-- <div class="container formulario d-flex justify-content-center align-items-center">
     <div class="col-md-6 col-lg-4"> -->
-<nz-row nzJustify="center" class="formulario" nzAlign="middle">
-    <nz-col nzSpan="20">
-        <form nz-form nzLayout="vertical" [formGroup]="registerForm">
+<section class="register-page">
+    <nz-row nzJustify="center" class="formulario" nzAlign="middle">
+        <nz-col nzSpan="20">
+            <form nz-form nzLayout="vertical" [formGroup]="registerForm">
             <nz-row class="titulo-descripcion">
                 <nz-col nzSpan="10">
                     <h2 class="titulo text-center">Regí<span class="color">strate</span></h2>
@@ -27,11 +28,26 @@
             </nz-form-item>
 
             <nz-form-item>
-                <nz-form-control nzErrorTip="Por favor introduce un correo electronico." [nzSpan]="24">
+                <nz-form-control [nzSpan]="24">
                     <nz-input-wrapper class="wrap-email">
                         <nz-icon class="icon-signup" nzInputPrefix nzType="mail" nzTheme="outline" />
-                        <input class="input-sign" nz-input formControlName="email" type="text" placeholder="Correo Electrónico">
+                        <input class="input-sign" nz-input formControlName="correo" type="text" placeholder="Correo Electrónico" required>
                     </nz-input-wrapper>
+                    @if (registerForm.get('correo')?.hasError('required') && registerForm.get('correo')?.touched) {
+                    <div style="color:red; margin-top:5px;">
+                        El correo es obligatorio
+                    </div>
+                    }
+                    @if (registerForm.get('correo')?.hasError('email') && registerForm.get('correo')?.touched) {
+                    <div style="color:red; margin-top:5px;">
+                        El correo no tiene un formato válido
+                    </div>
+                    }
+                    @if (registerForm.get('correo')?.hasError('correoDuplicado') && registerForm.get('correo')?.touched) {
+                    <div style="color:red; margin-top:5px;">
+                        Este correo ya está en uso
+                    </div>
+                    }
                 </nz-form-control>
             </nz-form-item>
 
@@ -42,8 +58,13 @@
                 <nz-form-control [nzSpan]="24">
                     <nz-input-password class="wrap-password">
                         <nz-icon class="icon-signup" nzInputPrefix nzType="lock" nzTheme="outline" />
-                        <input class="input-sign" nz-input formControlName="password" type="text" placeholder="Contraseña">
+                        <input class="input-sign" nz-input formControlName="contrasena" type="password" placeholder="Contraseña" required>
                     </nz-input-password>
+                    @if (registerForm.get('contrasena')?.hasError('required') && registerForm.get('contrasena')?.touched) {
+                    <div style="color:red; margin-top:5px;">
+                        La contraseña es obligatoria
+                    </div>
+                    }
                 </nz-form-control>
                 <!-- <nz-form-control [nzErrorTip]="passwordError" [nzSpan]="24"> -->
                 <nz-form-control [nzSpan]="24">
@@ -58,7 +79,7 @@
                     } -->
 
                 </nz-form-control>
-                @if (registerForm.get('password')?.hasError('pattern') && registerForm.get('password')?.dirty) {
+                @if (registerForm.get('contrasena')?.hasError('pattern') && registerForm.get('contrasena')?.dirty) {
 
                 <div style="color:red; margin-top:5px;">
                     Debe tener al menos una minúscula, una mayúscula, un número, un carácter especial y mínimo 8
@@ -80,8 +101,9 @@
                 </ng-template> -->
             </nz-form-item>
 
-            <button nz-button class="btn-success btn-registrarse" (click)="registrarUsuario()" [disabled]="!registerForm.valid">Registrarse</button>
+                <button nz-button class="btn-success btn-registrarse" (click)="registrarUsuario()" [disabled]="registerForm.invalid || registerForm.pending">Registrarse</button>
 
-        </form>
-    </nz-col>
-</nz-row>
+            </form>
+        </nz-col>
+    </nz-row>
+</section>

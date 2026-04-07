@@ -14,10 +14,11 @@ import { NzButtonSize } from 'ng-zorro-antd/button';
 import { Statistics } from "../statistics/statistics";
 import { Filtros } from '../filtros/filtros';
 import { Tareas } from '../tareas/tareas';
+import { AddTask } from '../../components/add-task/add-task';
 
 @Component({
   selector: 'app-panel-tareas',
-  imports: [NzBreadCrumbModule, NzIconModule, NzMenuModule, NzLayoutModule, NzInputModule, NzButtonModule, NzFloatButtonModule, NzColDirective, NzTypographyModule, NzGridModule, Statistics, Filtros, Tareas],
+  imports: [NzBreadCrumbModule, NzIconModule, NzMenuModule, NzLayoutModule, NzInputModule, NzButtonModule, NzFloatButtonModule, NzColDirective, NzTypographyModule, NzGridModule, Statistics, Filtros, Tareas, AddTask],
   templateUrl: './panel-tareas.html',
 })
 export class PanelTareas {

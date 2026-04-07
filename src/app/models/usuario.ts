@@ -2,8 +2,8 @@ export class Usuario {
     constructor(
         public id_usuario: number,
         public nombre: string,
-        public email: string,
-        public password: string,
+        public correo: string,
+        public contrasena: string,
         public fecha_registro: Date
     ) {}
 }

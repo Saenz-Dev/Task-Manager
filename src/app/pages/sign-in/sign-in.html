@@ -1,6 +1,7 @@
-<nz-row nzJustify="center" class="formulario" nzAlign="middle">
-    <nz-col nzSpan="20">
-        <form nz-form nzLayout="vertical" [formGroup]="loginForm">
+<section class="register-page">
+    <nz-row nzJustify="center" class="formulario" nzAlign="middle">
+        <nz-col nzSpan="20">
+            <form nz-form nzLayout="vertical" [formGroup]="loginForm">
             <nz-row class="titulo-descripcion">
                 <nz-col nzSpan="10">
                     <h2 class="titulo text-center">Iní<span class="color">ciate</span></h2>
@@ -15,7 +16,7 @@
                 <nz-form-control nzErrorTip="Por favor introduce un correo electronico." [nzSpan]="24">
                     <nz-input-wrapper class="wrap-email">
                         <nz-icon  class="icon-signin" nzInputPrefix nzType="mail" nzTheme="outline" />
-                        <input class="input-sign" nz-input formControlName="email" type="text" placeholder="Correo electrónico">
+                        <input class="input-sign" nz-input formControlName="correo" type="text" placeholder="Correo electrónico">
                     </nz-input-wrapper>
                 </nz-form-control>
             </nz-form-item>
@@ -24,7 +25,7 @@
                 <nz-form-control nzErrorTip="Por favor introduce la contraseña." [nzSpan]="24">
                     <nz-input-password class="wrap-password">
                         <nz-icon  class="icon-signin" nzInputPrefix nzType="lock" nzTheme="outline" />
-                        <input class="input-sign" nz-input formControlName="password" type="text" placeholder="Contraseña">
+                        <input class="input-sign" nz-input formControlName="contrasena" type="text" placeholder="Contraseña">
                     </nz-input-password>
                 </nz-form-control>
             </nz-form-item>
@@ -33,9 +34,10 @@
                 <div nz-col nzSpan="13"><a href="#" class="textForgetPassword">¿Olvidaste tu contraseña?</a></div>
             </div>
 
-            <button nz-button class="btn-registrarse" (click)="iniciarSesion()"
-                [disabled]="!loginForm.valid">Iniciar  sesión</button>
+                <button nz-button class="btn-registrarse" (click)="iniciarSesion()"
+                    [disabled]="!loginForm.valid">Iniciar  sesión</button>
 
-        </form>
-    </nz-col>
-</nz-row>
+            </form>
+        </nz-col>
+    </nz-row>
+</section>

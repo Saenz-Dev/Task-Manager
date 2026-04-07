@@ -31,7 +31,7 @@
                     <h2 nz-typography class="titulo">Panel de <span class="color">Tareas</span></h2>
                 </div>
                 <div nz-col nzSpan="12" style="text-align: right; right: 10px;">
-                    <button class="btn-addTask" nz-button nzType="primary" [nzSize]="'large'" nzShape="round">
+                    <button class="btn-addTask" nz-button nzType="primary" [nzSize]="'large'" nzShape="round" (click)="addTaskComponent.togglePanel()">
                         <i class="bi bi-plus">Nueva tarea</i>
                     </button>
                 </div>
@@ -40,6 +40,7 @@
                 <nz-breadcrumb-item>User</nz-breadcrumb-item>
                 <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
             </nz-breadcrumb> -->
+            <app-add-task #addTaskComponent></app-add-task>
             <div class="inner-content">
                 <div nz-row>
                     <div nz-col nzSpan="24">

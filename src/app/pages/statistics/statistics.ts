@@ -23,7 +23,6 @@ export class Statistics {
     this.pendientesTasks = 0;
     this.completadasTasks = 0;
     this.vencidasTasks = 0;
-
   }
 
   countTotalTask(tareas: Tarea[]) {
