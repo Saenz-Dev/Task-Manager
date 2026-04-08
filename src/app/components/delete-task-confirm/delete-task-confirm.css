@@ -1,0 +1,107 @@
+:host {
+    display: block;
+}
+
+:host ::ng-deep .delete-task-modal .ant-modal {
+    animation: deletePanelIn 0.24s ease-out;
+    transform-origin: center top;
+}
+
+@keyframes deletePanelIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+:host ::ng-deep .delete-task-modal .ant-modal-content {
+    border-radius: 18px !important;
+    overflow: hidden;
+    border: 1px solid rgba(237, 188, 184, 0.6);
+    background: linear-gradient(165deg, #fff9f8, #fff2f1 78%);
+    box-shadow: 0 26px 44px rgba(91, 35, 31, 0.18);
+}
+
+:host ::ng-deep .delete-task-modal .ant-modal-body {
+    padding: 24px 24px 14px;
+}
+
+:host ::ng-deep .delete-task-modal .ant-modal-footer {
+    padding: 0 24px 20px;
+    border-top: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.delete-hero {
+    text-align: center;
+}
+
+.danger-icon-wrap {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 12px;
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ca3a2e;
+    background: radial-gradient(circle at 32% 22%, #ffd6d3, #ffc5bf);
+    box-shadow: 0 12px 22px rgba(202, 58, 46, 0.28);
+    font-size: 30px;
+}
+
+.delete-title {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: #3f1f1a;
+}
+
+.delete-text {
+    margin: 10px auto 0;
+    max-width: 360px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #704741;
+}
+
+.task-name {
+    display: inline;
+    font-weight: 800;
+    color: #b63429;
+}
+
+.btn-cancel,
+.btn-confirm-delete {
+    min-width: 110px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.btn-confirm-delete {
+    border: 0;
+    background: linear-gradient(135deg, #d9483b, #bd3428);
+    box-shadow: 0 10px 20px rgba(189, 52, 40, 0.28);
+}
+
+.btn-confirm-delete:hover {
+    background: linear-gradient(135deg, #e45042, #c2382c);
+}
+
+@media (max-width: 640px) {
+    :host ::ng-deep .delete-task-modal .ant-modal-footer {
+        flex-direction: column-reverse;
+    }
+
+    .btn-cancel,
+    .btn-confirm-delete {
+        width: 100%;
+    }
+}

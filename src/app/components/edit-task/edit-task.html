@@ -1,0 +1,86 @@
+<nz-modal
+    [nzVisible]="visible"
+    [nzMaskClosable]="true"
+    [nzClosable]="false"
+    [nzCentered]="true"
+    [nzWidth]="650"
+    nzClassName="edit-task-modal"
+    (nzOnCancel)="cerrar()"
+    [nzFooter]="editFooter">
+    <ng-container *nzModalContent>
+        <div class="panel-hero edit-hero">
+            <h2 class="panel-title">Editar tarea</h2>
+            <span class="panel-chip">Task Manager</span>
+            <p>Actualiza la informacion y manten tu tablero al dia.</p>
+        </div>
+
+        <form nz-form [formGroup]="editForm" (ngSubmit)="guardarEdicion()" class="task-form">
+            <nz-form-item>
+                <nz-form-label nzRequired>Titulo</nz-form-label>
+                <nz-form-control [nzValidateStatus]="editForm.get('titulo')!" nzErrorTip="El titulo es obligatorio">
+                    <input nz-input formControlName="titulo" placeholder="Ej: Crear diseno del dashboard" />
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+                <nz-form-label nzRequired>Descripcion</nz-form-label>
+                <nz-form-control [nzValidateStatus]="editForm.get('descripcion')!" nzErrorTip="La descripcion es obligatoria">
+                    <textarea nz-input formControlName="descripcion" [nzAutosize]="{ minRows: 2, maxRows: 4 }" placeholder="Describe brevemente la tarea..."></textarea>
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+                <nz-form-label nzRequired>Categoria</nz-form-label>
+                <nz-form-control [nzValidateStatus]="editForm.get('id_categoria')!" nzErrorTip="La categoria es obligatoria">
+                    <nz-select formControlName="id_categoria" nzPlaceHolder="Selecciona una categoria">
+                        @for (categoria of categorias; track categoria.id_categoria) {
+                        <nz-option [nzValue]="categoria.id_categoria" [nzLabel]="categoria.nombre"></nz-option>
+                        }
+                    </nz-select>
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+                <nz-form-label nzRequired>Prioridad</nz-form-label>
+                <nz-form-control [nzValidateStatus]="editForm.get('prioridad')!" nzErrorTip="La prioridad es obligatoria">
+                    <nz-select formControlName="prioridad" nzPlaceHolder="Selecciona prioridad">
+                        <nz-option nzValue="Alta" nzLabel="Alta"></nz-option>
+                        <nz-option nzValue="Media" nzLabel="Media"></nz-option>
+                        <nz-option nzValue="Baja" nzLabel="Baja"></nz-option>
+                    </nz-select>
+                </nz-form-control>
+            </nz-form-item>
+
+            <div nz-row [nzGutter]="12">
+                <div nz-col [nzSpan]="24" [nzMd]="12">
+                    <nz-form-item>
+                        <nz-form-label nzRequired>Fecha de creacion</nz-form-label>
+                        <nz-form-control [nzValidateStatus]="editForm.get('fecha_creacion')!" nzErrorTip="Selecciona una fecha de creacion">
+                            <nz-date-picker formControlName="fecha_creacion" nzFormat="yyyy-MM-dd" nzPlaceHolder="Fecha de creacion" [nzDisabled]="true"></nz-date-picker>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+
+                <div nz-col [nzSpan]="24" [nzMd]="12">
+                    <nz-form-item>
+                        <nz-form-label nzRequired>Fecha de vencimiento</nz-form-label>
+                        <nz-form-control [nzValidateStatus]="editForm.get('fecha_vencimiento')!" nzErrorTip="Selecciona una fecha de vencimiento">
+                            <nz-date-picker formControlName="fecha_vencimiento" nzFormat="yyyy-MM-dd" nzPlaceHolder="Selecciona la fecha"></nz-date-picker>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+            </div>
+
+            @if (editForm.errors?.['fechaInvalida'] && editForm.get('fecha_vencimiento')?.touched) {
+            <nz-alert nzType="error" nzShowIcon nzMessage="La fecha de vencimiento debe ser mayor o igual a la fecha de creacion"></nz-alert>
+            }
+        </form>
+    </ng-container>
+
+    <ng-template #editFooter>
+        <button nz-button nzType="default" type="button" class="cancel-action" (click)="cerrar()">Cancelar</button>
+        <button nz-button nzType="primary" type="submit" class="save-action" [disabled]="editForm.invalid" (click)="guardarEdicion()">
+            Guardar cambios
+        </button>
+    </ng-template>
+</nz-modal>

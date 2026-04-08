@@ -30,9 +30,20 @@
                 <nz-form-control [nzValidateStatus]="tareaForm.get('categoria')!"
                     nzErrorTip="La categoria es obligatoria">
                     <nz-select formControlName="categoria" nzPlaceHolder="Selecciona una categoria">
-                        @for (categoria of categorias; track categoria) {
-                        <nz-option [nzValue]="categoria" [nzLabel]="categoria"></nz-option>
+                        @for (categoria of categorias; track categoria.id_categoria) {
+                        <nz-option [nzValue]="categoria.id_categoria" [nzLabel]="categoria.nombre"></nz-option>
                         }
+                    </nz-select>
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+                <nz-form-label nzRequired>Prioridad</nz-form-label>
+                <nz-form-control [nzValidateStatus]="tareaForm.get('prioridad')!" nzErrorTip="La prioridad es obligatoria">
+                    <nz-select formControlName="prioridad" nzPlaceHolder="Selecciona prioridad">
+                        <nz-option nzValue="Alta" nzLabel="Alta"></nz-option>
+                        <nz-option nzValue="Media" nzLabel="Media"></nz-option>
+                        <nz-option nzValue="Baja" nzLabel="Baja"></nz-option>
                     </nz-select>
                 </nz-form-control>
             </nz-form-item>
@@ -44,7 +55,7 @@
                         <nz-form-control [nzValidateStatus]="tareaForm.get('fechaCreacion')!"
                             nzErrorTip="Selecciona una fecha de creacion">
                             <nz-date-picker formControlName="fechaCreacion" nzFormat="yyyy-MM-dd"
-                                nzPlaceHolder="Selecciona la fecha"></nz-date-picker>
+                                nzPlaceHolder="Fecha de hoy" [nzDisabled]="true"></nz-date-picker>
                         </nz-form-control>
                     </nz-form-item>
                 </div>
@@ -55,7 +66,7 @@
                         <nz-form-control [nzValidateStatus]="tareaForm.get('fechaVencimiento')!"
                             nzErrorTip="Selecciona una fecha de vencimiento">
                             <nz-date-picker formControlName="fechaVencimiento" nzFormat="yyyy-MM-dd"
-                                nzPlaceHolder="Selecciona la fecha"></nz-date-picker>
+                                nzPlaceHolder="Selecciona la fecha" [nzDisabledDate]="disabledFechaVencimiento"></nz-date-picker>
                         </nz-form-control>
                     </nz-form-item>
                 </div>

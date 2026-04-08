@@ -40,7 +40,7 @@ app-root, nz-layout {
 }
 
 body {
-    background-color: rgba(239, 236, 231);
+    background: linear-gradient(135deg, #f0ede8, #e6e1d9);
     min-height: 100vh !important;
     display: flex;
     align-items: center;
@@ -266,7 +266,7 @@ nz-layout {
 } */
 
 .ant-layout-sider-collapsed div .logo {
-    background-image: url('\\assets\\img\\logo2.png');
+    background-image: url('/assets/img/logo2.png');
     width: 51px;
     height: 50px;
 }
@@ -274,7 +274,7 @@ nz-layout {
 .logo {
     height: 40px;
     width: 110px;
-    background-image: url('\\assets\\img\\logo3.png');
+    background-image: url('/assets/img/logo2.png');
     display: flex;
     justify-content: center;
     margin: 15px auto;

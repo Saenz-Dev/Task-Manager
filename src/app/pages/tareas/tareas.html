@@ -1,36 +1,77 @@
-<nz-collapse [nzBordered]="false">
-    @for (tarea of tareas ; track tarea) {
-    <nz-collapse-panel #p [nzHeader]="headerTemplate" [nzActive]="false" [nzShowArrow]="false">
-        <p>{{ tarea.descripcion }} content</p>
+<section class="tasks-shell">
+    <div class="tasks-head">
+        <p class="tasks-kicker">TAREAS</p>
+        <h3 class="tasks-title">Tu lista activa</h3>
+        <span class="tasks-count">{{ tareas.length }} tareas</span>
+    </div>
 
-    </nz-collapse-panel>
-    <ng-template #headerTemplate>
-        <div nz-row>
-            <div class="checkbox-tarea" nz-col nzSpan="1">
-                <label nz-checkbox ngModel="true"></label>
-            </div>
-            <div nz-col nzSpan="23">
-                <div nz-row>
-                    <div nz-col nzSpan="24">
-                        <span class="titulo-tarea" style="margin-left: 8px;">
-                            {{ tarea.titulo }}
-                        </span>
-                    </div>
+    @if (tareas.length === 0) {
+    <div class="tasks-empty-state">
+        <i class="bi bi-inbox tasks-empty-icon" aria-hidden="true"></i>
+        <p class="tasks-empty-title">No hay tareas por ahora</p>
+        <p class="tasks-empty-text">Crea una nueva tarea para empezar a organizar tu día.</p>
+    </div>
+    } @else {
+    <div class="tasks-list">
+        @for (tarea of tareas; track tarea) {
+        <article class="task-panel" [class.task-completed]="isCompletada(tarea)">
+            <div class="task-header">
+                <div class="task-actions">
+                    <button nz-button nzType="default" class="btn-task-action btn-edit" type="button" (click)="editarTarea(tarea)" aria-label="Editar tarea" title="Editar tarea">
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <button nz-button nzType="default" class="btn-task-action btn-delete" type="button" (click)="solicitarBorrado(tarea)" aria-label="Borrar tarea" title="Borrar tarea">
+                        <i class="bi bi-trash3"></i>
+                    </button>
                 </div>
-                <div nz-row>
-                    <div nz-col nzSpan="24">
-                        <div nz-row>
-                            <div class="id_categoria-tarea" nz-col nzSpan="2" [style.background-color]="findCategoria(tarea.id_categoria)?.color_back" [style.color]="findCategoria(tarea.id_categoria)?.color" >
-                                <p style="margin: 0px;" class="text-center">{{findCategoria(tarea.id_categoria)?.nombre}}</p>
-                            </div>
-                            <div class="fechaVencimiento-tarea" nz-col nzSpan="2">
-                                <p style="margin: 0px;"><i class="bi bi-calendar" style="font-size: 12px;"></i> {{tarea.fecha_vencimiento.getFullYear()}}-{{tarea.fecha_vencimiento.getMonth()}}-{{tarea.fecha_vencimiento.getDay()}}</p>
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="task-title-wrap">
+                    <label
+                        nz-checkbox
+                        class="task-check"
+                        [ngModel]="isCompletada(tarea)"
+                        [ngModelOptions]="{ standalone: true }"
+                        (ngModelChange)="cambiarEstadoTarea(tarea, $event)">
+                    </label>
+                    <span class="titulo-tarea">{{ tarea.titulo }} </span>
+                </div>
+                <p class="task-description">{{ tarea.descripcion }}</p>
+
+                <div class="task-meta-wrap">
+                    <span class="prioridad-tarea" [class.prioridad-alta]="getPrioridadNivel(tarea) === 'Alta'"
+                        [class.prioridad-media]="getPrioridadNivel(tarea) === 'Media'"
+                        [class.prioridad-baja]="getPrioridadNivel(tarea) === 'Baja'">
+                        Prioridad {{ getPrioridadTexto(tarea) }}
+                    </span>
+
+                    <span class="id_categoria-tarea" [style.background-color]="findCategoria(tarea.id_categoria)?.color_back"
+                        [style.color]="findCategoria(tarea.id_categoria)?.color"
+                        [style.border-color]="findCategoria(tarea.id_categoria)?.color">
+                        {{ findCategoria(tarea.id_categoria)?.nombre }}
+                    </span>
+
+                    <span class="fechaVencimiento-tarea" [class.fecha-vencida]="isVencida(tarea.fecha_vencimiento) && !isCompletada(tarea)">
+                        <i class="bi bi-calendar"></i> {{ formatFecha(tarea.fecha_vencimiento) }}
+                    </span>
                 </div>
             </div>
-        </div>
-    </ng-template>
+        </article>
+        }
+    </div>
     }
-</nz-collapse>
+</section>
+
+<app-edit-task
+    [visible]="isEditOpen"
+    [tarea]="selectedTask"
+    [categorias]="categorias"
+    (closed)="cerrarPanelEdicion()"
+    (saved)="aplicarEdicion($event)">
+</app-edit-task>
+
+<app-delete-task-confirm
+    [visible]="isDeleteConfirmOpen"
+    [tarea]="taskToDelete"
+    (canceled)="cerrarConfirmacionBorrado()"
+    (confirmed)="borrarTarea($event)">
+</app-delete-task-confirm>

@@ -57,8 +57,19 @@ export class SignIn {
 
     this._loginService.login({ correo, contrasena }, true).subscribe(
       (result: any) => {
-        this._loginService.setIdentity(result.usuario);
-        this._loginService.setToken(result.token);
+        // console.log('Respuesta del login:sddfasd', result.data);
+        const usuario = result.data;  
+        // console.log('Respuesta del login:', result);
+        localStorage.setItem('token', result?.token ?? result?.data?.token ?? '');
+
+        if (localStorage.getItem('token') === null) {
+          this.loginError = 'No fue posible obtener el token de sesión.';
+          this._notificationService.error('No fue posible iniciar sesión. Verifica tus credenciales.');
+          return;
+        }
+        // console.log('Usuario autenticado:', usuario);
+        this._loginService.setIdentity(usuario);
+        this._loginService.setToken(localStorage.getItem('token'));
         this._notificationService.success('Inicio de sesión correcto.');
         setTimeout(() => {
           this._router.navigate(['/home-tasks']);

@@ -21,7 +21,7 @@ export class LoginService {
 
     login(usuario : LoginCredentials, getToken = false): Observable<any> {
         let body = { ...usuario };
-        console.log('LoginService - login - body:', body);
+        // console.log('LoginService - login - body:', body);
         const payload = getToken ? { ...usuario, gettoken: true } : usuario;
         const params = JSON.stringify(payload);
         const headers = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
@@ -33,7 +33,16 @@ export class LoginService {
 
     getIdentity(): any {
         const identity = localStorage.getItem('identity');
-        return identity ? JSON.parse(identity) : null;
+        if (!identity) {
+            return null;
+        }
+
+        try {
+            return JSON.parse(identity);
+        } catch {
+            localStorage.removeItem('identity');
+            return null;
+        }
     }
 
     getToken(): string | null {
@@ -41,10 +50,18 @@ export class LoginService {
     }
 
     setIdentity(identity: any): void {
+        if (!identity) {
+            localStorage.removeItem('identity');
+            return;
+        }
         localStorage.setItem('identity', JSON.stringify(identity));
     }
 
-    setToken(token: string): void {
+    setToken(token: string | null | undefined): void {
+        if (!token) {
+            localStorage.removeItem('token');
+            return;
+        }
         localStorage.setItem('token', token);
     }
 

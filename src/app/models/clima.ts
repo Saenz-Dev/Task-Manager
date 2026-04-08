@@ -4,6 +4,6 @@ export class Clima {
         public temperatura: number,
         public descripcion: string,
         public fecha: Date,
-        id_tarea: number
+        public id_tarea: number
     ) {}
 }

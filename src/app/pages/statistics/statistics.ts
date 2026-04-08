@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DecimalPipe } from '@angular/common';
 
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzIconModule } from 'ng-zorro-antd/icon';
@@ -9,8 +8,9 @@ import { Tarea } from '../../models/tarea';
 
 @Component({
   selector: 'statistics',
-  imports: [DecimalPipe, NzCardModule, NzIconModule, NzGridModule, NzStatisticModule],
-  templateUrl: './statistics.html'
+  imports: [NzCardModule, NzIconModule, NzGridModule, NzStatisticModule],
+  templateUrl: './statistics.html',
+  styleUrls: ['./statistics.css']
 })
 export class Statistics {
   public totalTasks: number;

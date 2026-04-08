@@ -1,0 +1,134 @@
+:host {
+    display: block;
+}
+
+:host ::ng-deep .edit-task-modal .ant-modal {
+    animation: editPanelIn 0.28s ease-out;
+    transform-origin: center top;
+}
+
+@keyframes editPanelIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+:host ::ng-deep .edit-task-modal .ant-modal-content {
+    border-radius: 15px !important;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.92);
+}
+
+:host ::ng-deep .edit-task-modal .ant-modal-body {
+    padding: 18px 20px 14px;
+}
+
+:host ::ng-deep .edit-task-modal .ant-modal-footer {
+    padding: 0 20px 18px;
+    border-top: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.edit-hero {
+    margin: 0 0 10px;
+}
+
+.panel-title {
+    margin: 0 0 6px;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: #112217;
+}
+
+.panel-chip {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(46, 125, 84, 0.12);
+    color: #1f6a46;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.edit-hero p {
+    margin: 6px 0 0;
+    color: #607262;
+    font-size: 12px;
+}
+
+.task-form :where(.ant-form-item) {
+    margin-bottom: 10px;
+}
+
+.task-form :where(.ant-form-item-label > label) {
+    font-weight: 700;
+    color: #1d3323;
+}
+
+.task-form :where(.ant-input),
+.task-form :where(.ant-select-selector),
+.task-form :where(.ant-picker) {
+    border-radius: 12px !important;
+    border: none !important;
+    background: #edf3ed !important;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.task-form :where(.ant-input:focus),
+.task-form :where(.ant-input-focused),
+.task-form :where(.ant-select-focused .ant-select-selector),
+.task-form :where(.ant-picker-focused) {
+    border-color: #2e7d54 !important;
+    box-shadow: 0 0 0 3px rgba(46, 125, 84, 0.16) !important;
+}
+
+.task-form :where(textarea.ant-input) {
+    min-height: 70px;
+}
+
+.task-form :where(nz-alert) {
+    display: block;
+    margin-top: 4px;
+    border-radius: 10px;
+}
+
+.save-action,
+.cancel-action {
+    min-width: 108px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.save-action {
+    background: linear-gradient(135deg, #2e7d54, #1f6a46);
+    border: 0;
+    box-shadow: 0 10px 22px rgba(31, 106, 70, 0.28);
+}
+
+.save-action:hover:not(:disabled) {
+    background: linear-gradient(135deg, #328b5c, #225f42);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    :host ::ng-deep .edit-task-modal .ant-modal-footer {
+        flex-direction: column-reverse;
+    }
+
+    .save-action,
+    .cancel-action {
+        width: 100%;
+    }
+}

@@ -1,25 +1,36 @@
-<div class="statistics-div" style="background: #ECECEC; padding: 30px;">
-    <nz-row [nzGutter]="16">
-        <nz-col [nzSpan]="6">
-            <nz-card>
-                <nz-statistic class="statistics-nz" [nzValue]="" nzTitle="Total" [nzValueStyle]="{ color: 'black' }" />
+<section class="stats-shell">
+    <div class="stats-head">
+        <p class="stats-kicker">RESUMEN DEL DÍA</p>
+        <h3 class="stats-title">Estado de tus tareas</h3>
+    </div>
+
+    <nz-row [nzGutter]="[16, 16]" class="stats-grid">
+        <nz-col [nzXs]="12" [nzSm]="12" [nzLg]="6">
+            <nz-card class="metric-card metric-total" [nzBordered]="false">
+                <div class="metric-icon" aria-hidden="true">Σ</div>
+                <nz-statistic [nzValue]="totalTasks" nzTitle="Total" [nzValueStyle]="{ color: '#2f2a23' }"></nz-statistic>
             </nz-card>
         </nz-col>
-        <nz-col [nzSpan]="6">
-            <nz-card>
-                <nz-statistic class="statistics-nz" [nzValue]="pendientesTasks" nzTitle="Pendientes" [nzValueStyle]="{ color: '#3F8600' }" />
+
+        <nz-col [nzXs]="12" [nzSm]="12" [nzLg]="6">
+            <nz-card class="metric-card metric-pending" [nzBordered]="false">
+                <div class="metric-icon" aria-hidden="true">◷</div>
+                <nz-statistic [nzValue]="pendientesTasks" nzTitle="Pendientes" [nzValueStyle]="{ color: '#466a2f' }"></nz-statistic>
             </nz-card>
         </nz-col>
-        <nz-col [nzSpan]="6">
-            <nz-card>
-                <nz-statistic class="statistics-nz" [nzValue]="completadasTasks" nzTitle="Completadas"
-                    [nzValueStyle]="{ color: 'black' }" />
+
+        <nz-col [nzXs]="12" [nzSm]="12" [nzLg]="6">
+            <nz-card class="metric-card metric-done" [nzBordered]="false">
+                <div class="metric-icon" aria-hidden="true">✓</div>
+                <nz-statistic [nzValue]="completadasTasks" nzTitle="Completadas" [nzValueStyle]="{ color: '#2f2a23' }"></nz-statistic>
             </nz-card>
         </nz-col>
-        <nz-col [nzSpan]="6">
-            <nz-card>
-                <nz-statistic class="statistics-nz" [nzValue]="vencidasTasks" nzTitle="Vencidas" [nzValueStyle]="{ color: '#CF1322' }" />
+
+        <nz-col [nzXs]="12" [nzSm]="12" [nzLg]="6">
+            <nz-card class="metric-card metric-expired" [nzBordered]="false">
+                <div class="metric-icon" aria-hidden="true">!</div>
+                <nz-statistic [nzValue]="vencidasTasks" nzTitle="Vencidas" [nzValueStyle]="{ color: '#9b2b2b' }"></nz-statistic>
             </nz-card>
         </nz-col>
     </nz-row>
-</div>
+</section>
